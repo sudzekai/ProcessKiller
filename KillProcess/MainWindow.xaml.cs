@@ -130,10 +130,13 @@ namespace KillProcess
             }
             else
             {
-                for (int i = 0; i < File.ReadAllText(path).Split(' ').Count(); i++)
+                if (File.ReadAllText(path).Trim().Length > 0)
                 {
-                    ProcessList.Items.Add(File.ReadAllText(path).Split()[i].Trim());
+                    for (int i = 0; i < File.ReadAllText(path).Split(' ').Count(); i++)
+                    {
+                        ProcessList.Items.Add(File.ReadAllText(path).Split()[i].Trim());
 
+                    }
                 }
             }
 
