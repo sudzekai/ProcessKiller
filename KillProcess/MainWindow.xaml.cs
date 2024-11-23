@@ -3,15 +3,10 @@ using System.IO;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
 
 
 namespace KillProcess
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
-    /// 
     public partial class MainWindow : Window
     {
         private bool ongoing = false;
@@ -80,7 +75,9 @@ namespace KillProcess
             if (!ongoing)
             {
                 ongoing = true;
-                Start.Content = "Отключить";
+                Start.Content = " Вы в\nпотоке";
+             
+                Start.FontSize = 25;
                 Start.BorderBrush = (Brush)converter.ConvertFrom("#49c8a1");
                 Timer();
             }
@@ -88,6 +85,7 @@ namespace KillProcess
             {
                 ongoing = false;
                 Start.Content = "Старт";
+                Start.FontSize = 25;
                 Start.BorderBrush = (Brush)converter.ConvertFrom("#7160e8");
             }
 
@@ -135,6 +133,7 @@ namespace KillProcess
                 for (int i = 0; i < File.ReadAllText(path).Split(' ').Count(); i++)
                 {
                     ProcessList.Items.Add(File.ReadAllText(path).Split()[i].Trim());
+
                 }
             }
 

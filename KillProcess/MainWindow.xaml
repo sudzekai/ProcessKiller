@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KillProcess"
         mc:Ignorable="d"
-        Title="ProcessKiller" Height="600" Width="400" ResizeMode="NoResize">
+        Title="WorkMode" Height="600" Width="400" ResizeMode="NoResize">
     <Window.Resources>
         <SolidColorBrush x:Key="mouseOverColor"
                     Color="#3d3d3d" />
@@ -19,12 +19,12 @@
     <Grid Style="{StaticResource Back}">
         <Border x:Name="Main" Visibility="Visible">
             <StackPanel VerticalAlignment="Bottom">
-                <Button Name="OpenOptions" VerticalAlignment="Bottom" HorizontalAlignment="Center" Height="50" Width="400" BorderBrush="#7160e8" Content="Настройки" Background="#1f1f1f" Foreground="White" FontSize="25" FontFamily="Verdana" Click="OpenOptions_Click"/>
+                <Button Name="OpenOptions" VerticalAlignment="Bottom" HorizontalAlignment="Center" Height="50" Width="400" BorderBrush="#7160e8" Content="Настройки" Background="#1f1f1f" Foreground="White" FontSize="25" FontFamily="Comic Sans MS" Click="OpenOptions_Click"/>
             </StackPanel>
         </Border>
         
         <Border>
-            <Button Name="Start" HorizontalAlignment="Center" VerticalAlignment="Center" Width="150" Height="150" BorderThickness="5" BorderBrush="#7160e8" Background="#1f1f1f" Foreground="White" Content="Старт" FontFamily="Verdana" FontSize="25" Click="Start_Click">
+            <Button Name="Start" HorizontalAlignment="Center" VerticalAlignment="Center" Width="150" Height="150" BorderThickness="5" BorderBrush="#7160e8" Background="#1f1f1f" Foreground="White" Content="Старт" FontFamily="Comic Sans MS" FontSize="25" Click="Start_Click" FontWeight="Bold">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="80"/>
@@ -35,9 +35,9 @@
         
         <Border x:Name="Options" VerticalAlignment="Bottom" HorizontalAlignment="Center" Height="400" Width="400" BorderBrush="#7160e8" Visibility="Hidden" BorderThickness="1">
             <StackPanel>
-                <Button x:Name ="OptionsBtn" Height="50" Width="400" BorderBrush="#7160e8" Content="Скрыть" Background="#1f1f1f" Foreground="White" FontSize="25" FontFamily="Verdana" Click="OptionsBtn_Click"/>
-                <ListBox x:Name ="ProcessList" VerticalAlignment="Bottom" Height="300" FontSize="20" FontFamily="Verdana" Foreground="White" Background="#1f1f1f" BorderBrush="#7160e8" KeyDown="ProcessList_KeyDown"/>
-                <TextBox x:Name="InputProcessName" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="50" Width="400" FontSize="20" FontFamily="Verdana" Foreground="White" Background="#1f1f1f" BorderBrush="#7160e8" Padding="10" KeyDown="InputProcessName_KeyDown"/>
+                <Button x:Name ="OptionsBtn" Height="50" Width="400" BorderBrush="#7160e8" Content="Скрыть" Background="#1f1f1f" Foreground="White" FontSize="25" FontFamily="Comic Sans MS" Click="OptionsBtn_Click"/>
+                <ListBox x:Name ="ProcessList" VerticalAlignment="Bottom" Height="300" FontSize="20" FontFamily="Comic Sans MS" Foreground="White" Background="#1f1f1f" BorderBrush="#7160e8" KeyDown="ProcessList_KeyDown"/>
+                <TextBox x:Name="InputProcessName" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="50" Width="400" FontSize="20" FontFamily="Comic Sans MS" Foreground="White" Background="#1f1f1f" BorderBrush="#7160e8" Padding="10" KeyDown="InputProcessName_KeyDown"/>
             </StackPanel>
         </Border>
     </Grid>
