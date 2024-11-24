@@ -3,15 +3,21 @@ using System.IO;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Timers;
+using System.Reflection.Emit;
+using System.Threading;
 
 
 namespace KillProcess
 {
     public partial class MainWindow : Window
     {
+
         private bool ongoing = false;
         public MainWindow()
         {
+
+            
             try
             {
                 InitializeComponent();
@@ -25,13 +31,15 @@ namespace KillProcess
 
         }
 
-        private void Timer()
+        private void KillProcess()
         {
-
+            DateTime starttime = DateTime.Now;
             async Task LoopAsync()
             {
+                
                 while (ongoing)
                 {
+                    CounterLabel.Content = new DateTime((DateTime.Now - starttime).Ticks).ToString("mm:ss:ff");
                     foreach (string processName in ProcessList.Items)
                     {
                         Process[] proc = Process.GetProcessesByName(processName);
@@ -71,18 +79,20 @@ namespace KillProcess
 
         private void Start_Click(object sender, RoutedEventArgs e)
         {
+            
             var converter = new BrushConverter();
             if (!ongoing)
             {
+                CounterLabel.Visibility = Visibility.Visible;
                 ongoing = true;
                 Start.Content = " Вы в\nпотоке";
-             
                 Start.FontSize = 25;
                 Start.BorderBrush = (Brush)converter.ConvertFrom("#49c8a1");
-                Timer();
+                KillProcess();
             }
             else
             {
+                CounterLabel.Visibility = Visibility.Hidden;
                 ongoing = false;
                 Start.Content = "Старт";
                 Start.FontSize = 25;

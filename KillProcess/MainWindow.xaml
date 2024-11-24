@@ -19,6 +19,7 @@
     <Grid Style="{StaticResource Back}">
         <Border x:Name="Main" Visibility="Visible">
             <StackPanel VerticalAlignment="Bottom">
+                <Label Name="CounterLabel" Visibility="Visible" Content="" Width="200" Foreground="White" FontSize="17.5" FontFamily="Comic Sans MS" HorizontalAlignment="Center" Margin="125" HorizontalContentAlignment="Center"/>
                 <Button Name="OpenOptions" VerticalAlignment="Bottom" HorizontalAlignment="Center" Height="50" Width="400" BorderBrush="#7160e8" Content="Настройки" Background="#1f1f1f" Foreground="White" FontSize="25" FontFamily="Comic Sans MS" Click="OpenOptions_Click"/>
             </StackPanel>
         </Border>
