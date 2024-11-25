@@ -4,28 +4,38 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KillProcess"
+        
         mc:Ignorable="d"
-        Title="WorkMode" Height="600" Width="400" ResizeMode="NoResize">
+        
+        Title="WorkMode 2.0" Height="650" Width="400" ResizeMode="NoResize">
     <Window.Resources>
-        <SolidColorBrush x:Key="mouseOverColor"
-                    Color="#3d3d3d" />
         <Style x:Key="Back">
             <Style.Setters>
                 <Setter Property="Grid.Background" Value="#1f1f1f"/>
             </Style.Setters>
         </Style>
-        
+        <Image x:Key="Image" Source="/images/optbtn.ico" Width="45" Height="45"/>
+        <Image x:Key="BPImage" Source="/images/crown.png" Width="45" Height="45"/>
+        <Image x:Key="INFOImage" Source="/images/dots.png" Width="45" Height="45"/>
+        <Image x:Key="FINDImage" Source="/images/finder.png" Width="45" Height="35"/>
+
     </Window.Resources>
+
     <Grid Style="{StaticResource Back}">
-        <Border x:Name="Main" Visibility="Visible">
-            <StackPanel VerticalAlignment="Bottom">
-                <Label Name="CounterLabel" Visibility="Visible" Content="" Width="200" Foreground="White" FontSize="17.5" FontFamily="Comic Sans MS" HorizontalAlignment="Center" Margin="125" HorizontalContentAlignment="Center"/>
-                <Button Name="OpenOptions" VerticalAlignment="Bottom" HorizontalAlignment="Center" Height="50" Width="400" BorderBrush="#7160e8" Content="Настройки" Background="#1f1f1f" Foreground="White" FontSize="25" FontFamily="Comic Sans MS" Click="OpenOptions_Click"/>
-            </StackPanel>
-        </Border>
-        
-        <Border>
-            <Button Name="Start" HorizontalAlignment="Center" VerticalAlignment="Center" Width="150" Height="150" BorderThickness="5" BorderBrush="#7160e8" Background="#1f1f1f" Foreground="White" Content="Старт" FontFamily="Comic Sans MS" FontSize="25" Click="Start_Click" FontWeight="Bold">
+        <Border Name="STARTBtn">
+            <Button Name="Start" 
+                    HorizontalAlignment="Center" 
+                    VerticalAlignment="Center" 
+                    Width="150" Height="150" 
+                    BorderThickness="5" 
+                    BorderBrush="#7160e8" 
+                    Background="#1f1f1f" 
+                    Foreground="White" 
+                    Content="Старт" 
+                    FontFamily="Comic Sans MS" 
+                    FontSize="25" 
+                    FontWeight="Bold"
+                    Click="Start_Click">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="80"/>
@@ -33,13 +43,81 @@
                 </Button.Resources>
             </Button>
         </Border>
-        
-        <Border x:Name="Options" VerticalAlignment="Bottom" HorizontalAlignment="Center" Height="400" Width="400" BorderBrush="#7160e8" Visibility="Hidden" BorderThickness="1">
-            <StackPanel>
-                <Button x:Name ="OptionsBtn" Height="50" Width="400" BorderBrush="#7160e8" Content="Скрыть" Background="#1f1f1f" Foreground="White" FontSize="25" FontFamily="Comic Sans MS" Click="OptionsBtn_Click"/>
-                <ListBox x:Name ="ProcessList" VerticalAlignment="Bottom" Height="300" FontSize="20" FontFamily="Comic Sans MS" Foreground="White" Background="#1f1f1f" BorderBrush="#7160e8" KeyDown="ProcessList_KeyDown"/>
-                <TextBox x:Name="InputProcessName" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="50" Width="400" FontSize="20" FontFamily="Comic Sans MS" Foreground="White" Background="#1f1f1f" BorderBrush="#7160e8" Padding="10" KeyDown="InputProcessName_KeyDown"/>
+
+        <Border Name="TOOLBar" BorderThickness="1" BorderBrush="#7160e8" Width="185" Height="50" VerticalAlignment="Bottom" Margin="10">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Button Name="OptBtn" Content="{StaticResource Image}" Background="#1f1f1f" BorderThickness="0" Click="OpenOptions_Click"/>
+                <Button Name="OpenBp" Content="{StaticResource BPImage}" Background="#1f1f1f" BorderThickness="0" Click="OpenBp_Click"/>
+                <Button Name="OpenInfo" Content="{StaticResource INFOImage}" Background="#1f1f1f" BorderThickness="0" Click="OpenInfo_Click"/>
             </StackPanel>
+
+            <Border.Resources>
+                <Style TargetType="Border">
+                    <Style.Setters>
+                        <Setter Property="CornerRadius" Value="25"/>
+                    </Style.Setters>
+                </Style>
+            </Border.Resources>
+
+        </Border>
+
+        <Border Name="OPTIONSBar" Visibility="Visible" HorizontalAlignment="Center" BorderBrush="#7160e8" BorderThickness="2" Width="376" Height="525" Background="#1f1f1f" Margin="0,10,0,74">
+            <StackPanel Orientation="Vertical" VerticalAlignment="Center" Height="520">
+                <Label Content="Список процессов" FontFamily="Comic Sans MS" Foreground="White" FontSize="25" FontWeight="Bold" HorizontalAlignment="Center"/>
+                <ListView Name="PROCESSESList" Height="454" Width="350" Background="#1f1f1f" BorderThickness="0" FontFamily="Comic Sans MS" Foreground="White" FontSize="15"/>
+            </StackPanel>
+            <Border.Resources>
+                <Style TargetType="Border">
+                    <Style.Setters>
+                        <Setter Property="CornerRadius" Value="50"/>
+                    </Style.Setters>
+                </Style>
+            </Border.Resources>
+        </Border>
+
+        <Border Name ="AdditionalTOOLBar" Visibility="Visible" HorizontalAlignment="Right" BorderBrush="#7160e8" BorderThickness="2" Height="50" Width="50" VerticalAlignment="Bottom" Margin="0,0,12,10">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Button Name="FINDBtn" Content="{StaticResource FINDImage}" Background="#1f1f1f" Width="45" Height="45" VerticalAlignment="Center" BorderThickness="0" Click="FINDBtn_Click">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Style.Setters>
+                                <Setter Property="CornerRadius" Value="50"/>
+                            </Style.Setters>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+            </StackPanel>
+            <Border.Resources>
+                <Style TargetType="Border">
+                    <Style.Setters>
+                        <Setter Property="CornerRadius" Value="50"/>
+                    </Style.Setters>
+                </Style>
+            </Border.Resources>
+        </Border>
+
+        <Border Name="FINDWindow" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="200" Height="50" Margin="0,0,12,65" Background="#1f1f1f" BorderBrush="#7160e8" BorderThickness="2">
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                <TextBox Name="FINDTextBox" Text="" Padding="4.25" Width="190" Height="40" BorderThickness="0" FontFamily="Comic Sans MS" FontSize="22" Background="#383838" Foreground="White" KeyDown="FINDTextBox_KeyDown">
+                    <TextBox.Resources>
+                        <Style TargetType="Border">
+                            <Style.Setters>
+                                <Setter Property="CornerRadius" Value="22"/>
+                            </Style.Setters>
+                        </Style>
+                    </TextBox.Resources>
+                </TextBox>
+            </StackPanel>
+            
+            <Border.Resources>
+                <Style TargetType="Border">
+                    <Style.Setters>
+                        <Setter Property="CornerRadius" Value="26"/>
+                    </Style.Setters>
+                </Style>
+            </Border.Resources>
         </Border>
     </Grid>
+
+
 </Window>

@@ -6,11 +6,29 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
-    <ApplicationIcon>bin\Release\net8.0-windows\wr.ico</ApplicationIcon>
+    <ApplicationIcon>images\wr.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="bin\Release\net8.0-windows\wr.ico" />
+    <None Remove="images\crown.png" />
+    <None Remove="images\dots.png" />
+    <None Remove="images\finder.png" />
+    <None Remove="images\optbtn.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="images\wr.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="images\crown.png" />
+    <Resource Include="images\dots.png" />
+    <Resource Include="images\finder.png" />
+    <Resource Include="images\optbtn.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="bin\Release\net8.0-windows\" />
   </ItemGroup>
 
 </Project>
