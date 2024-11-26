@@ -1,6 +1,7 @@
 # KillProcess
 
-Для установки скачать и запустить WorkMode-setup
+Для установки скачать и запустить KillProcess/KillProcess/WorkMode-setup.exe
+
 
 # Информация
 
