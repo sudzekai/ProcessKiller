@@ -268,13 +268,23 @@ namespace KillProcess
         }
         private void UnCheck(object sender, RoutedEventArgs e)
         {
-            CheckBox chBox = (CheckBox)sender;
 
-            string text = File.ReadAllText(path);
-            string tmp = $"kill {chBox.Content.ToString()}";
-            text = text.Replace(tmp, null);
+            CheckBox chBox = (CheckBox)sender;
+            if (ongoing)
+            {
+                MessageBox.Show("Сначала выйдите из потока", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                chBox.IsChecked = true;
+            }
+            else
+            {
+
+                string text = File.ReadAllText(path);
+                string tmp = $"kill {chBox.Content.ToString()}";
+                text = text.Replace(tmp, null);
+
+                File.WriteAllText(path, text);
+            }
             
-            File.WriteAllText(path, text);
 
         }
 
