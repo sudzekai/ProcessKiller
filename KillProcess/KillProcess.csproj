@@ -10,9 +10,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="images\3643771-configuration-configure-gear-set-setting_113449.png" />
+    <None Remove="images\brush.png" />
     <None Remove="images\crown.png" />
     <None Remove="images\dots.png" />
     <None Remove="images\finder.png" />
+    <None Remove="images\github_logo_icon_147285.png" />
     <None Remove="images\optbtn.ico" />
   </ItemGroup>
 
@@ -21,9 +24,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="images\3643771-configuration-configure-gear-set-setting_113449.png" />
+    <Resource Include="images\brush.png" />
     <Resource Include="images\crown.png" />
     <Resource Include="images\dots.png" />
     <Resource Include="images\finder.png" />
+    <Resource Include="images\github_logo_icon_147285.png" />
     <Resource Include="images\optbtn.ico" />
   </ItemGroup>
 
